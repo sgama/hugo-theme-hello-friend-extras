@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    width: 760px;
+    width: 1170px;
     max-width: 100%;
   }
 }
@@ -47,4 +47,211 @@
   -webkit-user-select: none;  
   -moz-user-select: none;    
   -ms-user-select: none;      
+}
+
+$color_1: white;
+$color_2: #777;
+$color_3: #999;
+$color_4: #d42;
+$color_5: #555;
+$color_6: #000;
+$background_color_1: #4CAF50;
+$background_color_2: #F5F5F5;
+$background_color_3: #fff;
+$border_color_1: darkgrey;
+$border_color_2: #444;
+
+/* CONTACT FORM */
+.contact-form {
+	margin: 1.6em 0 3em 0;
+	overflow: auto;
+	p {
+		margin: 0 0 1.8em 0;
+		width: 50%;
+		float: left;
+		&:nth-of-type(1) {
+			padding-right: 32px;
+		}
+		&:nth-of-type(3) {
+			width: 100%;
+		}
+		&:nth-of-type(4) {
+			width: 100%;
+		}
+	}
+	input {
+		&:not([type=submit]) {
+			&:not([type=button]) {
+				&:not([type=file]) {
+					&:not([type=radio]) {
+						&:not([type=checkbox]) {
+							width: 100%;
+							padding: 1.4em;
+							display: block;
+							-moz-box-sizing: border-box;
+							-webkit-box-sizing: border-box;
+							-ms-box-sizing: border-box;
+							box-sizing: border-box;
+							border-color: $border_color_1;
+						}
+					}
+				}
+			}
+		}
+	}
+	textarea {
+		width: 100%;
+		padding: 1.4em;
+		display: block;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		box-sizing: border-box;
+		border-color: $border_color_1;
+		height: 100px;
+		border-color: $border_color_1;
+	}
+}
+input[type=submit] {
+	background-color: $background_color_1;
+	border: none;
+	width: 100%;
+	color: $color_1;
+	padding: 16px 32px;
+	text-decoration: none;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+.clearfix {
+	&:before {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		content: " ";
+		display: table;
+		clear: both;
+	}
+}
+.post {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	&:hover {
+		background-color: $background_color_2;
+	}
+	blockquote {
+		margin: 1.8em .8em;
+		border-left: 1px dotted #777;
+		padding: 0.1em 1em;
+		color: $color_2;
+	}
+	.eyebrow {
+		font-size: 12px;
+		line-height: 30px;
+		color: $color_2;
+		padding-top: 6px;
+		margin-bottom: 6px;
+		border-top: 1px solid #999;
+	}
+	.comments {
+		margin-top: 10px;
+	}
+	.small-link {
+		font-size: 11px;
+		color: $color_3;
+		display: block;
+		&:hover {
+			color: $color_4;
+		}
+	}
+	.large-link {
+		font-size: 20px;
+		color: $color_5;
+		font-weight: 500;
+	}
+	.primary-link {
+		color: $color_6;
+		font-size: 13px;
+		font-weight: 500;
+	}
+	.spacer {
+		padding-right: 8px;
+		margin-right: 8px;
+		border-right: 1px solid #ccc;
+	}
+}
+pre {
+	font-size: 16px;
+	line-height: 1.5em;
+	code {
+		white-space: pre;
+	}
+}
+pre.highlight {
+	background: #FAFAFA;
+	background-image: linear-gradient(#F9F9F9 50%, #FDFDFD 50%);
+	background-repeat: repeat;
+	background-size: 3em 3em;
+	background-position: 0px 10px;
+	border-left: 7px solid #444;
+}
+.highlight {
+	>pre {
+		background: #FAFAFA;
+		background-image: linear-gradient(#F9F9F9 50%, #FDFDFD 50%);
+		background-repeat: repeat;
+		background-size: 3em 3em;
+		background-position: 0px 10px;
+		border-left: 7px solid #444;
+		padding: 0;
+	}
+}
+td.code {
+	pre {
+		background: #FAFAFA;
+		background-image: linear-gradient(#F9F9F9 50%, #FDFDFD 50%);
+		background-repeat: repeat;
+		background-size: 3em 3em;
+		background-position: 0px 10px;
+		border-left: 7px solid #444;
+		border-width: 0 0 0 2px;
+		border-style: solid;
+		border-color: $border_color_2;
+		border-radius: 0;
+	}
+}
+code {
+	table {
+		padding: 0;
+		border: none;
+		background-color: $background_color_3;
+		td {
+			padding: 0;
+			border: none;
+			background-color: $background_color_3;
+		}
+		th {
+			padding: 0;
+			border: none;
+			background-color: $background_color_3;
+		}
+		tbody {
+			padding: 0;
+			border: none;
+			background-color: $background_color_3;
+		}
+		tr {
+			padding: 0;
+			border: none;
+			background-color: $background_color_3;
+		}
+	}
+}
+td.gutter {
+	pre {
+		padding: 0;
+		border: none;
+		background-color: $background_color_3;
+	}
+	padding-top: 3px;
 }

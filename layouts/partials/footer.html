@@ -1,18 +1,56 @@
 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; {{ now.Format "2006" }}</span>
-            {{ if .Site.Author.name }}
-                <span><a href="{{ .Site.BaseURL }}">{{ .Site.Author.name }}</a></span>
-            {{ end }}
-            <span>{{ .Site.Copyright| safeHTML }}</span>
-            <span>{{- with (not (in (.Site.Language.Get "disableKinds") "RSS")) }} <a href="{{ "posts/index.xml" | absLangURL }}" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a>{{ end }}</span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Made with &#10084; by <a href="https://github.com/rhazdon">rhazdon</a></span>
+    <div class="container">
+        <div class="row">
+            <ul class="list-inline text-center footer-links">
+                {{ range .Site.Data.hellofriendadvanced.social.social_icons }}
+                  {{- if isset $.Site.Author .id }}
+                    <li>
+                      <a href="{{ printf .url (index $.Site.Author .id) }}" title="{{ .title }}">
+                        <span class="fa-stack fa-lg">
+                          <i class="fa fa-circle fa-stack-2x"></i>
+                          <i class="fa {{ .icon }} fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </li>
+                  {{- end -}}
+                {{ end }}
+                {{ if .Site.Params.rss }}
+                <li>
+                  {{ if .RSSLink }}
+                  <a href="{{ .RSSLink }}" title="RSS">
+                  {{ else }}
+                  <a href="{{ .Site.RSSLink }}" title="RSS">
+                  {{ end }}
+                    <span class="fa-stack fa-lg">
+                      <i class="fa fa-circle fa-stack-2x"></i>
+                      <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+                    </span>
+                  </a>
+                </li>
+                {{ end }}
+              </ul>
+              <p class="credits copyright text-muted">
+                {{ if .Site.Author.name }}
+                  {{ if .Site.Author.website }}
+                    <a href="{{ .Site.Author.website }}">{{ .Site.Author.name }}</a>
+                  {{ else }}
+                    {{ .Site.Author.name }}
+                  {{ end }}
+                {{ end }}
+      
+                &nbsp;&bull;&nbsp;
+                {{ .Site.LastChange.Format "2006" }}
+      
+                {{ if .Site.Title }}
+                  &nbsp;&bull;&nbsp;
+                  <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+                {{ end }}
+              </p>
+              <!-- Please don't remove this, keep my open source work credited :) -->
+              <p class="credits theme-by text-muted">
+                {{ i18n "poweredBy" . | safeHTML }}
+                {{ with .Site.Params.commit }}&nbsp;&bull;&nbsp;[<a href="{{.}}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>]{{ end }}
+              </p>
         </div>
     </div>
 </footer>
