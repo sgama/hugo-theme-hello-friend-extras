@@ -238,12 +238,17 @@ ol ol {
 
 hr {
   width: 100%;
-  border: none;
   background: $light-border-color;
   height: 1px;
+  max-width: 100px;
+  margin: 15px auto;
+  border-width: 4px;
+  border-color: #dcdcdc;
+  border-radius: 3px;
 
   .dark-theme & {
-    background: $dark-border-color;
+	background: $dark-border-color;
+	border-color: #4a4b50;
   }
 }
 
@@ -680,4 +685,5 @@ img {
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
+	padding-bottom: 20px;
   }
